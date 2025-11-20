@@ -23,7 +23,7 @@ Logic Diagram
 
 Verilog Code
 4:1 MUX Gate-Level Implementation
-
+```
 module MUX1(I0,I1,I2,I3,S1,S2,Y);
     input I0,I1,I2,I3,S1,S2;
     output Y;
@@ -36,9 +36,9 @@ module MUX1(I0,I1,I2,I3,S1,S2,Y);
     and (d,I3,S1,S2);
     or (Y,a,b,c,d);    
 endmodule
-
+```
 4:1 MUX Gate-Level Implementation- Testbench
-
+```
 module MUX1_TB;
     reg I0_t,I1_t,I2_t,I3_t,S1_t,S2_t;
     wire Y_t;
@@ -74,7 +74,7 @@ module MUX1_TB;
         S2_t = 1'b1;
     end
 endmodule
-
+```
 Sample Output:
 
 4:1 MUX Gate-Level Implementation
@@ -93,7 +93,7 @@ Simulated Output Gate Level Modelling
 <img width="1083" height="610" alt="image" src="https://github.com/user-attachments/assets/ce94bbc5-eaac-4ad8-8a73-052a709121b1" />
 
 4:1 MUX Data flow Modelling
-
+```
 module MUX2_TB(A,B,C,D,S1,S0,Y);
     input A,B,C,D,S1,S0;
     output Y;
@@ -104,9 +104,9 @@ module MUX2_TB(A,B,C,D,S1,S0,Y);
                  (S1 == 1 && S0 == 1) ? D: 1'b0;
 
 endmodule
-
+```
 4:1 MUX Data flow Modelling- Testbench
-
+```
 module MUX2_TB;
     reg a,b,c,d,s1,s0;
     wire y;
@@ -142,9 +142,9 @@ module MUX2_TB;
         s0 = 1'b1;
     end
 endmodule
-
+```
 Sample Output:
-
+```
 4:1 MUX Data Flow Implementation
 
 Time=00 | s[1]=0 s[0]=0 | Inputs: a=1 b=0 c=1 d=0
@@ -156,13 +156,13 @@ Time=200 | s[1]=1 s[0]=0 | Inputs: a=1 b=0 c=1 d=0
 Time=300 | s[1]=1 s[0]=1 | Inputs: a=1 b=0 c=1 d=0
         | out_dataflow=0
 
-
+```
 Simulated Output Dataflow Modelling
 
 <img width="1082" height="611" alt="image" src="https://github.com/user-attachments/assets/8684ed3f-a4b6-4034-8546-169954968340" />
 
 4:1 MUX Behavioral Implementation
-
+```
 module MUX3(I,S,Y);
     input wire [0:3] I;
     input wire [1:0] S;
@@ -178,9 +178,9 @@ module MUX3(I,S,Y);
         endcase
     end
 endmodule
-
+```
 4:1 MUX Behavioral Modelling- Testbench
-
+```
 module MUX3_TB;
     reg [0:3]I;
     reg [1:0]S;
@@ -201,9 +201,9 @@ module MUX3_TB;
         S = 2'b11;
     end
 endmodule
-
+```
 Sample Output:
-
+```
 4:1 MUX Behavioral Implementation
 
 Time=00 | S[1]=0 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
@@ -214,13 +214,13 @@ Time=200 | S[1]=1 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_behavioral=1
 Time=300 | S[1]=1 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_behavioral=0
-
+```
 Simulated Output Behavioral Modelling
 
 <img width="1083" height="607" alt="image" src="https://github.com/user-attachments/assets/04ff7495-97ab-4987-b37e-34c7695589d9" />
 
 4:1 MUX Structural Implementation
-
+```
 module mux2to1(A,B,S,Y);
     input A,B,S;
     output Y;    
@@ -239,9 +239,9 @@ module mux4to1_str(I,S,Y);
     mux2to1 m3(.A(y1), .B(y1), .S(S[1]), .Y(Y));
 
 endmodule      
-
+```
 Testbench Implementation
-
+```
 module mux4to1_str_tb;
     reg [0:3]I;
     reg [1:0]S;
@@ -264,9 +264,9 @@ module mux4to1_str_tb;
         S = 2'b11;
      end
 endmodule
-
+```
 Sample Output:
-
+```
 4:1 MUX Structural Implementation
 
 Time=00 | S[1]=0 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
@@ -277,7 +277,7 @@ Time=200 | S[1]=1 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_structural=1
 Time=300 | S[1]=1 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
         | out_structural=0
-
+```
 Simulated Output Structural Modelling
 
 <img width="1259" height="660" alt="image" src="https://github.com/user-attachments/assets/9e4a19a5-4851-4001-ae48-c15f1d0fa0e9" />
